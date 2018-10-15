@@ -16,14 +16,20 @@ topic=Sensor_1                                                  #If kafkaStreami
 
 Once the jar is built, you need to run following commands, as per the relevant scenarios, giving the properties file as command line argument:
 
-For processing the logs in batch mode
+#For processing the logs in batch mode
 
 spark-submit --class com.pepperData.LogProcessing LogProcessing-0.0.1-SNAPSHOT.jar <propertyFileLocation>
   
-Example: spark-submit --class com.pepperData.LogProcessing LogProcessing-0.0.1-SNAPSHOT.jar D:\PepperDataWorkSpace\pepperdata.properties
+Your final command will look something like this:
 
-For processing the logs in streaming mode
+spark-submit --class com.pepperData.LogProcessing LogProcessing-0.0.1-SNAPSHOT.jar D:\PepperDataWorkSpace\pepperdata.properties
+
+#For processing the logs in streaming mode
 
 spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0 --class com.pepperData.LogProcessing D:\PepperDataWorkSpace\PepperData\target\LogProcessing-0.0.1-SNAPSHOT.jar <propertyFileLocation>
   
-Example: spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0 --class com.pepperData.LogProcessing D:\PepperDataWorkSpace\PepperData\target\LogProcessing-0.0.1-SNAPSHOT.jar D:\PepperDataWorkSpace\pepperdata.properties
+Your final command will look something like this:
+
+spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0 --class com.pepperData.LogProcessing D:\PepperDataWorkSpace\PepperData\target\LogProcessing-0.0.1-SNAPSHOT.jar D:\PepperDataWorkSpace\pepperdata.properties
+
+You will see the results getting displayed on the console
